@@ -37,7 +37,7 @@ st.write(df.head())
 st.subheader('Parâmetros do prompt')
 
 ########## Informações do cliente ########## 
-nomeApp = st.text_input('Insira o nome do app')
+nomeApp = st.text_input('Insira o nome que chamaremos o app ao responder')
 voz = st.selectbox('Selecione o tom de voz', ('Neutro','Informal', 'Formal'))
 pessoa = ('1ª pessoa do plural','1ª pessoa do singular (masculino)','1ª pessoa do singular (feminino)','2ª pessoa','3ª pessoa')
 pessoaVerbal = st.selectbox('Selecione a pessoa verbal', pessoa)
