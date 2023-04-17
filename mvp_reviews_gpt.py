@@ -83,7 +83,7 @@ dfPrompt.loc[dfPrompt['Nome'] != 'Nenhum', 'prompt'] = dfPrompt['prompt']+ '\nUs
 
 ########## API ########## 
 
-API_KEY = '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'
+API_KEY = TOKEN_API
 headers = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
 url = "https://api.openai.com/v1/chat/completions"
 id_modelo = "gpt-3.5-turbo"
