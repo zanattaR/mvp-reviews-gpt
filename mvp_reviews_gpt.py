@@ -110,7 +110,7 @@ if st.button('Gerar Respostas'):
 		body_mensagem = json.dumps(body_mensagem)
 
 		r = requests.post(url, headers=headers, data=body_mensagem)
-		texto_final = r.reason
+		texto_final = r.json()['choices'][0]['message']['content']
 
 		return texto_final
 
