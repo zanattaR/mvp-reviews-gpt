@@ -7,6 +7,7 @@ import requests
 import json
 import base64
 from io import BytesIO
+import time
 
 # Função para transformar df em excel
 def to_excel(df):
@@ -116,7 +117,8 @@ if st.button('Gerar Respostas'):
 	for i in range(3):
 
 		dfPrompt[f'Resposta_{i+1}'] = dfPrompt['prompt'].apply(gerarResposta)
-	#dfPrompt['respostas'] = dfPrompt['prompt'].apply(gerarResposta)
+		time.sleep(1)
+
 	dfPrompt.drop(['Nome','prompt'],axis=1, inplace=True)
 
 	st.write(dfPrompt)
