@@ -89,6 +89,16 @@ url = "https://api.openai.com/v1/chat/completions"
 id_modelo = "gpt-3.5-turbo"
 
 if st.button('Gerar Respostas'):
+	body_mensagem = {
+		"model": id_modelo,
+		"messages": [{"role": "user", "content": "Explique, em poucas palavras do que se trata a teoria das cordas"}],
+		"max_tokens":10}
+
+	body_mensagem = json.dumps(body_mensagem)
+
+	r = requests.post(url, headers=headers, data=body_mensagem)
+	st.write(r)
+	st.write(r.reason)
 
 	def gerarResposta(prompt):
 		body_mensagem = {
