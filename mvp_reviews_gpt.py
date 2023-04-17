@@ -99,7 +99,7 @@ if st.button('Gerar Respostas'):
 	r = requests.post(url, headers=headers, data=body_mensagem)
 	st.write(r)
 	st.write(r.reason)
-	st.write(r.json())
+	st.write(r.json()['choices'][0]['message']['content'])
 
 	def gerarResposta(prompt):
 		body_mensagem = {
