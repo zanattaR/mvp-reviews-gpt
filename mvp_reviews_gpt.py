@@ -115,9 +115,10 @@ if st.button('Gerar Respostas'):
 		return texto_final
 
 	for i in range(3):
+		time.sleep(3)
 
 		dfPrompt[f'Resposta_{i+1}'] = dfPrompt['prompt'].apply(gerarResposta)
-		time.sleep(1)
+		time.sleep(3)
 
 	dfPrompt.drop(['Nome','prompt'],axis=1, inplace=True)
 
