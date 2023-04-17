@@ -90,17 +90,6 @@ url = "https://api.openai.com/v1/chat/completions"
 id_modelo = "gpt-3.5-turbo"
 
 if st.button('Gerar Respostas'):
-	body_mensagem = {
-		"model": id_modelo,
-		"messages": [{"role": "user", "content": "Explique, em poucas palavras do que se trata a teoria das cordas"}],
-		"max_tokens":10}
-
-	body_mensagem = json.dumps(body_mensagem)
-
-	r = requests.post(url, headers=headers, data=body_mensagem)
-	st.write(r)
-	st.write(r.reason)
-	st.write(r.json()['choices'][0]['message']['content'])
 
 	def gerarResposta(prompt):
 		body_mensagem = {
@@ -115,10 +104,9 @@ if st.button('Gerar Respostas'):
 		return texto_final
 
 	for i in range(3):
-		time.sleep(5)
 
 		dfPrompt[f'Resposta_{i+1}'] = dfPrompt['prompt'].apply(gerarResposta)
-		time.sleep(5)
+
 
 	dfPrompt.drop(['Nome','prompt'],axis=1, inplace=True)
 
