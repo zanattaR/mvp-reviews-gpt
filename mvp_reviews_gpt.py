@@ -48,11 +48,13 @@ contato = st.text_input('Insira a forma de contato para o cliente')
 ########## Criação do prompt ########## 
 
 def primeiro_nome(nome):
-    nome_split = nome.split(' ')
-    if len(nome_split) > 1:
-        return nome_split[0]
-    else:
-        return 'Nenhum'
+	nome_split = nome.split(' ')
+	if nome == 'Um usuário do Google':
+		return 'Nenhum'
+	elif len(nome_split) > 1:
+		return nome_split[0]
+	else:
+		return 'Nenhum'
 
 def createPrompt(sentiment,rating, voz, pessoaVerbal, nomeApp, evitar, contato):
 	infos = f'''Tom de voz: {voz} na {pessoaVerbal}  
