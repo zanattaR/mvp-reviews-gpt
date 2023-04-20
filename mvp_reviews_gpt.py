@@ -89,16 +89,11 @@ if reviewSheet is not None:
 
 	########## API ########## 
 
-	API_KEY = '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'
-	headers = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
-	url = "https://api.openai.com/v1/chat/completions"
-	id_modelo = "gpt-3.5-turbo"
-
 	if st.button('Gerar Respostas'):
 
 		prompts = list(dfPrompt['prompt'])
 
-		API_KEY = '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'
+		API_KEY = st.secrets["TOKEN_API"]
 
 		headers = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
 		url = "/v1/chat/completions"
