@@ -130,13 +130,12 @@ if reviewSheet is not None:
 			return data
 
 		results = asyncio.run(getChatgptResponses(prompts))
-
+		st.write(results)
 		replies = []
 		for i in results:
 			reply = i['choices'][0]['message']['content']
 			replies.append(reply)
 
-		df = pd.DataFrame()
 
 		# Divide a lista em pedaços de três itens e atribui a cada coluna
 		dfPrompt['Resposta_1'] = replies[::3]
