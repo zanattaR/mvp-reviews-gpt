@@ -86,7 +86,7 @@ if reviewSheet is not None:
 	dfPrompt['prompt'] = dfPrompt.apply(lambda row: createPrompt(row['Sentiment'],row['Rating'],row['Review'], voz, pessoaVerbal, nomeApp, evitar, contato), axis=1)
 
 	dfPrompt.loc[dfPrompt['Nome'] != 'Nenhum', 'prompt'] = dfPrompt['prompt']+ '\nUse sempre o nome do cliente: ' + dfPrompt['Nome']
-	st.write(dfPrompt)
+
 	########## API ########## 
 
 	API_KEY = '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'
