@@ -130,7 +130,7 @@ if reviewSheet is not None:
 		for i in results:
 			reply = i['choices'][0]['message']['content']
 			replies.append(reply)
-
+		st.write(replies)
 
 		# Divide a lista em pedaços de três itens e atribui a cada coluna
 		dfPrompt['Resposta_1'] = replies[::3]
