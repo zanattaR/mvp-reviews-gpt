@@ -75,7 +75,7 @@ if reviewSheet is not None:
 		\n{infos} 
 		\nSentimento: {sentiment}
 		\nRating: {rating}
-		\nMáximo de caracteres na resposta: 300
+		\nMáximo de caracteres na resposta: 250
 		\nComentário: {review}"""
 
 		return prompt
@@ -114,7 +114,7 @@ if reviewSheet is not None:
 				body_mensagem = {
 				"model": id_modelo,
 				"messages": [{"role": "user", "content": prompt}],
-				"max_tokens":600}
+				"max_tokens":500}
 
 				body_mensagem = json.dumps(body_mensagem)
 				tasks.append(getData(session,body_mensagem))
