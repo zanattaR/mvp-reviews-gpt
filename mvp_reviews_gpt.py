@@ -26,7 +26,7 @@ def get_table_download_link(df):
 	b64 = base64.b64encode(val)
 	return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="extract.xlsx">Download</a>'
 
-st.title("Pulse GPT")
+st.title("PulseGPT")
 st.write('Esta aplicação tem como objetivo auxiliar o time de atendimento de Pulse Solution com respostas geradas por IA')
 st.write()
 
@@ -59,18 +59,18 @@ if reviewSheet is not None:
 			return 'Nenhum'
 
 	def createPrompt(sentiment, rating, review, voz, pessoaVerbal, nomeApp, evitar, contato):
-		infos = f'''Tom de voz: {voz} na {pessoaVerbal}  
+		infos = f'''Responda no seguinte tom de voz: {voz} na {pessoaVerbal}  
 		\nNome do aplicativo: {nomeApp}
-		\nEvitar: {evitar}
-		\nContato: {contato}'''
+		\nEvite nas respostas: {evitar}
+		\nQuando julgar necessário, insira o Contato: {contato}'''
 
 		prompt = f"""Haja como um atendente de um aplicativo que responde os comentários dos usuários.
-		Sempre inicie a resposta com uma saudação ao cliente! 
-		Cada resposta deve seguir às seguintes instruções: 
-		para comentário de sentimento positivo, responda de forma que agradeça o usuário e 
-		para cada comentário de sentimento negativo, responda se desculpando. 
-		Para a nota de 1 a 5, considere 1 como Muito Insatisfeito e 5 como Muito Satisfeito.
-		Responda com o tom de voz selecionado. Insira o contato. Evite o que for fornecido nas instruções. 
+		Cada resposta deve ter NO MÁXIMO 270 caracteres e seguir às seguintes instruções: 
+		Sempre inicie a resposta com uma saudação ao cliente. 
+		Separe a saudação do nome por vírgula.
+		Comentário de sentimento positivo, responda agradecendo ao usuário e 
+		Para sentimento negativo, responda se desculpando. 
+		Para Rating de 1 a 5, considere 1 como "Muito Insatisfeito" e 5 como "Muito Satisfeito".
 		Sempre use a expressão 'app' ou 'aplicativo' antes de se referir ao nome do aplicativo. 
 		\n{infos} 
 		\nSentimento: {sentiment}
@@ -114,7 +114,7 @@ if reviewSheet is not None:
 				body_mensagem = {
 				"model": id_modelo,
 				"messages": [{"role": "user", "content": prompt}],
-				"max_tokens":500}
+				"max_tokens":300}
 
 				body_mensagem = json.dumps(body_mensagem)
 				tasks.append(getData(session,body_mensagem))
