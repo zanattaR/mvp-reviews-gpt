@@ -132,9 +132,9 @@ if reviewSheet is not None:
 		listReplies =  list(dfNorm['message.content'])
 
 		# Divide a lista em pedaços de três itens e atribui a cada coluna
-		dfPrompt['Resposta_1'] = replies[::3]
-		dfPrompt['Resposta_2'] = replies[1::3]
-		dfPrompt['Resposta_3'] = replies[2::3]
+		dfPrompt['Resposta_1'] = listReplies[::3]
+		dfPrompt['Resposta_2'] = listReplies[1::3]
+		dfPrompt['Resposta_3'] = listReplies[2::3]
 
 		dfPrompt.drop(['Nome','prompt'],axis=1, inplace=True)
 		
