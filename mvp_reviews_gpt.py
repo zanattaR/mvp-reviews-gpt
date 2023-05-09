@@ -10,7 +10,6 @@ from io import BytesIO
 import time
 import asyncio
 import aiohttp
-import altair
 
 # Função para transformar df em excel
 def to_excel(df):
