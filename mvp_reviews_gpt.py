@@ -128,15 +128,16 @@ if reviewSheet is not None:
 
 		dfResults = pd.DataFrame(results)
 		dfNorm = pd.json_normalize(pd.DataFrame(dfResults.explode('choices')['choices'])['choices'])
-		listReplies =  list(dfNorm['message.content'])
+		st.write(dfNorm)
+		#listReplies =  list(dfNorm['message.content'])
 
 		# Divide a lista em pedaços de três itens e atribui a cada coluna
-		dfPrompt['Resposta_1'] = replies[::3]
-		dfPrompt['Resposta_2'] = replies[1::3]
-		dfPrompt['Resposta_3'] = replies[2::3]
+		#dfPrompt['Resposta_1'] = replies[::3]
+		#dfPrompt['Resposta_2'] = replies[1::3]
+		#dfPrompt['Resposta_3'] = replies[2::3]
 
-		dfPrompt.drop(['Nome','prompt'],axis=1, inplace=True)
+		#dfPrompt.drop(['Nome','prompt'],axis=1, inplace=True)
 		
-		st.write(dfPrompt)
-		st.write('Clique em Download para baixar o arquivo')
-		st.markdown(get_table_download_link(dfPrompt), unsafe_allow_html=True)
+		#st.write(dfPrompt)
+		#st.write('Clique em Download para baixar o arquivo')
+		#st.markdown(get_table_download_link(dfPrompt), unsafe_allow_html=True)
