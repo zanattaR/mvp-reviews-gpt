@@ -128,8 +128,8 @@ if reviewSheet is not None:
 		results = asyncio.run(getChatgptResponses(prompts))
 
 		dfResults = pd.DataFrame(results)
-		dfNorm = pd.json_normalize(pd.DataFrame(dfResults.explode('choices')['choices'])['choices'])
-		st.write(dfNorm)
+		#dfNorm = pd.json_normalize(pd.DataFrame(dfResults.explode('choices')['choices'])['choices'])
+		st.write(dfResults)
 		#listReplies =  list(dfNorm['message.content'])
 
 		# Divide a lista em pedaços de três itens e atribui a cada coluna
